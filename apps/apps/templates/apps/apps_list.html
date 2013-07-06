@@ -1,0 +1,39 @@
+{% extends "_layouts/base.html" %}
+
+{% block page_title %}Your Site - Home{% endblock %}
+{% block page_class %}home-page{% endblock %}
+{% block content %}
+
+<div class = "container">
+  <table class="table">
+  <caption><h1>{{ sub_category.sub_catg_name }}</h1></caption>
+  <tbody>
+  	{% for app in apps_list %}
+    
+      <tr>
+      <td>
+        <a href = "{% url 'appdetail' app_id=app.id %}">
+      	<div class = "clearfix">
+      		<div class = "appicon"><img src = "{{ app.icon.url }}"></div>
+      		<div>
+      			<div class = "appname">{{ app.app_name }}</div>
+      			<div>{{ app.size }}</div>
+      		</div>
+      		
+        </div>
+      </td>
+      <td class = "p10">
+      	<div> 
+      	   <a class="btn btn-large" href="{{ app.apk.url }}"><i class = "icon-download-alt"></i></a> 
+        </div>
+      </td>
+      </tr>
+	{% endfor %}
+	   <tr><td></td><td></td></tr>
+
+     
+  </tbody>
+  </table>
+</div>
+
+{% endblock %}
