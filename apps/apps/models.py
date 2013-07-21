@@ -49,5 +49,14 @@ class App(models.Model):
         return self.app_name
 
 
+
+class CarouselApp(models.Model):
+    app = models.OneToOneField(App, primary_key=True)
+    description = models.TextField(max_length=1000)
+    img = models.FileField(upload_to=lambda instance, filename: '/'.join(['carousel_app_meta', str(uuid.uuid1()) + '_' + filename]))
+    def __unicode__(self):
+        return self.app.app_name
+    
+
     
 

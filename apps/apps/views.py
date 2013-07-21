@@ -1,6 +1,6 @@
 # Create your views here.
 from django.shortcuts import render, get_object_or_404
-from apps.models import Category, SubCategory, App
+from apps.models import Category, SubCategory, App, CarouselApp
 
 def category(request, category_id):
     """ sub category list in this category """
@@ -31,4 +31,10 @@ def search(request):
         apps_list=list()
         context={'apps_list':apps_list,}
     return render(request, 'apps/apps_search.html',context)  
+
+
+def home(request):
+    apps_list = CarouselApp.objects.all()
+    print apps_list
+    return render(request, 'apps/apps_index.html', {'apps_list':apps_list})
     
