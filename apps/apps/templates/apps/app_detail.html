@@ -2,7 +2,34 @@
 
 {% block page_title %}Your Site - Home{% endblock %}
 {% block page_class %}home-page{% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block js %}
+<script src="{{ STATIC_URL }}js/portfolio.pack.min.js"></script>
+<script>
+    
+    $(document).ready(function() {
+      var p = $('#gallery').portfolio({
+        loop: true, // loop on/off
+        easingMethod: 'easeOutQuint', // other easing methods please refer: http://gsgd.co.uk/sandbox/jquery/easing/
+        height: '500px', // gallery height
+        width: '100%', // gallery width in pixels or in percentage
+        lightbox: false, // dim off other images, highlights only currently viewing image
+        logger: false // for debugging purpose, turns on/off console.log() statements in the script
+      });
+      p.init();
+    });
+ 
+</script>
+
+
+{% endblock %}
+
 {% block content %}
+
+<input   type="button"   name="back"   value="返回"   onclick="javascript:history.go(-1);return false;">
 
 <div class = "container">
  
@@ -14,6 +41,15 @@
     			<div>{{ app.size }}</div>
 
           <div>{{ app.description }}</div>
+
+          <div id="gallery">
+                <img data-src="{{ app.img1.url }}" alt="Preview 1" />
+                <img data-src="{{ app.img2.url }}" alt="Preview 2" />
+                <img data-src="{{ app.img3.url }}" alt="Preview 3" />
+                <img data-src="{{ app.img4.url }}" alt="Preview 4" />
+                
+          </div> 
+
     		</div>
     		
       </div>

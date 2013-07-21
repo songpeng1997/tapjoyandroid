@@ -3,6 +3,7 @@
 import uuid,os
 
 from django.db import models
+from djangosphinx.models import SphinxSearch
 
 # Create your models here.
 
@@ -28,7 +29,7 @@ def meta_file_name(instance, filename):
     return '/'.join(['apps_meta', folder, filename]) 
 
 class App(models.Model):
-    id = models.CharField(default = uuid.uuid1, primary_key=True, max_length = 36, editable = False)
+    app_id = models.CharField(default = uuid.uuid1, max_length = 36, editable = False)
     sub_catg = models.ForeignKey(SubCategory)
     app_name = models.CharField(max_length=200)
     description = models.TextField(max_length=1000)
@@ -42,6 +43,8 @@ class App(models.Model):
     size = models.IntegerField(default=0)
     pub_date = models.DateTimeField('date published')
     vendor_name = models.CharField(max_length=200)
+
+    search=SphinxSearch(index='sphinx_appdetail')
     def __unicode__(self):
         return self.app_name
 

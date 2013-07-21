@@ -1,0 +1,51 @@
+{% extends "_layouts/base.html" %}
+
+{% block page_title %}Your Site - Home{% endblock %}
+{% block page_class %}home-page{% endblock %}
+
+{% block js %}
+<script>
+    
+    $(document).ready(function() {
+       if ({{ category.id }}) {
+          $('#' + {{ category.id }}).addClass('active');
+       };
+       
+    });
+ 
+</script>
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class = "container">
+  <table class="table">
+  <caption><h1>{{ category.catg_name }}</h1></caption>
+  <tbody>
+    {% for sub_catg in subcategory_list %}
+    
+      <tr>
+      <td>
+        <a href = "{% url 'subcategory' subcategory_id=sub_catg.id %}">
+        <div class = "clearfix">
+          <div class = "appicon"><img src = "{{ sub_catg.icon.url }}"></div>
+          <div>
+            <div class = "appname">{{ sub_catg.sub_catg_name }}</div>
+            <div></div>
+          </div>
+          
+        </div>
+      </td>
+      <td></td>
+      </tr>
+  {% endfor %}
+     <tr><td></td><td></td></tr>
+
+     
+  </tbody>
+  </table>
+</div>
+{% endblock %}
