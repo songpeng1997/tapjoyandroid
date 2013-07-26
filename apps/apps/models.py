@@ -48,7 +48,11 @@ class App(models.Model):
     def __unicode__(self):
         return self.app_name
 
-
+class AppDownload(models.Model):
+    app = models.OneToOneField(App, primary_key=True)
+    count = models.IntegerField(default = 0)
+    def __unicode__(self):
+        return self.app.app_name
 
 class CarouselApp(models.Model):
     app = models.OneToOneField(App, primary_key=True)
