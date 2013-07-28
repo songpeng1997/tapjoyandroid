@@ -57,6 +57,8 @@ INSTALLED_APPS = (
     'compressor',
     #'debug_toolbar_user_panel',
 
+    'djangosphinx',
+
     # Database migrations
     'south',
 
@@ -65,7 +67,20 @@ INSTALLED_APPS = (
 
     # Local apps, referenced via appname
     'apps',
+
+
 )
+
+SPHINX_PORT = 9312
+
+# Sphinx 0.9.9
+SPHINX_API_VERSION = 0x116
+
+# Sphinx 0.9.8
+SPHINX_API_VERSION = 0x113
+
+# Sphinx 0.9.7
+SPHINX_API_VERSION = 0x107
 
 # Place bcrypt first in the list, so it will be the default password hashing
 # mechanism
