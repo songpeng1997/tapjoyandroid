@@ -1,0 +1,8 @@
+New deploy
+
+1. configure mysql database
+2. configure sphinx 
+3. configure uwsgi
+4. local.py
+5. upstart script for searchd, mysql, uwsgi, nginx
+
