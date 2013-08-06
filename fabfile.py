@@ -15,11 +15,11 @@ from fabric.operations import _prefix_commands, _prefix_env_vars
 
 # CHANGEME
 env.hosts = ['user@tapjoyandroid.example.com']
-env.code_dir = '/srv/www/tapjoyandroid'
-env.project_dir = '/srv/www/tapjoyandroid/tapjoyandroid'
-env.static_root = '/srv/www/tapjoyandroid/static/'
+env.code_dir = '/home/datateam/tapjoyandroid'
+env.project_dir = '/home/datateam/tapjoyandroid/tapjoyandroid'
+env.static_root = '/home/datateam/tapjoyandroid/tapjoyandroid/static/'
 env.virtualenv = '/srv/www/tapjoyandroid/.virtualenv'
-env.code_repo = 'git@github.com:user/tapjoyandroid.git'
+env.code_repo = 'git@github.com:songpeng1997/tapjoyandroid.git'
 env.django_settings_module = 'tapjoyandroid.settings'
 
 # Python version

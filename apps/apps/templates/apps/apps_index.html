@@ -15,18 +15,23 @@
 
         {% for app in apps_list %}
           {% if forloop.first %}<div class="item active">{% else %}<div class="item">{% endif %}
-         
+          <a href = "{% url 'appdetail' app_id=app.app.app_id %}">
           <img src="{{ app.img.url }}" alt="">
           <div class="carousel-caption">
             <p>{{ app.description }}</p>
           </div>
+        </a>
         </div>
         {% endfor %}
       </div>
       <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1" class=""></li>
-        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+        {% for app in apps_list %}
+          {% if forloop.first %}
+          <li data-target="#myCarousel" data-slide-to="{{ forloop.counter0 }}"class="active"></li>
+          {% else %}
+          <li data-target="#myCarousel" data-slide-to="{{ forloop.counter0 }}" ></li>
+          {% endif %}
+        {% endfor %}
       </ol>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
