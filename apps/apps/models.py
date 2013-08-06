@@ -48,10 +48,10 @@ class App(models.Model):
     active = models.BooleanField('Live', default=False)
 
     APP_TYPE_CHOICES = (
-    ('0', '免费'),
-    ('1', '试玩转激活'),
-    ('2', '道具收费'),
-    ('3', '付费'),
+    (0, '免费'),
+    (1, '试玩转激活'),
+    (2, '道具收费'),
+    (3, '付费'),
     )
      
     app_type = models.SmallIntegerField(default=1, choices = APP_TYPE_CHOICES )
