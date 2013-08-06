@@ -296,8 +296,8 @@ INTERNAL_IPS = ('127.0.0.1')
 # Set this to true if you use a proxy that sets X-Forwarded-Host
 #USE_X_FORWARDED_HOST = False
 
-SERVER_EMAIL = "webmaster@example.com"
-DEFAULT_FROM_EMAIL = "webmaster@example.com"
+#SERVER_EMAIL = "song.peng@tapjoy.com"
+#DEFAULT_FROM_EMAIL = "song.peng@tapjoy.com"
 SYSTEM_EMAIL_PREFIX = "[tapjoyandroid]"
 
 ## Log settings
@@ -306,15 +306,15 @@ LOG_LEVEL = logging.INFO
 HAS_SYSLOG = True
 SYSLOG_TAG = "http_app_tapjoyandroid"  # Make this unique to your project.
 # Remove this configuration variable to use your custom logging configuration
-LOGGING_CONFIG = None
-LOGGING = {
-    'version': 1,
-    'loggers': {
-        'tapjoyandroid': {
-            'level': "DEBUG"
-        }
-    }
-}
+#LOGGING_CONFIG = None
+#LOGGING = {
+#    'version': 1,
+#    'loggers': {
+#        'tapjoyandroid': {
+#            'level': "DEBUG"
+#        }
+#    }
+#}
 
 # Common Event Format logging parameters
 #CEF_PRODUCT = 'tapjoyandroid'
