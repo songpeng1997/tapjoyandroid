@@ -38,7 +38,10 @@
     		<div>
     			<div class = "appname">{{ app.app_name }}</div>
 
-    			<div>{{ app.size }}</div>
+    			<div>{{ app.size | filesizeformat}}</div>
+          {% if request.user.is_staff %}
+          <a href = "{% url 'admin:apps_app_change' app.id %}">edit</a>
+          {% endif %}
 
           <div>{{ app.description }}</div>
 

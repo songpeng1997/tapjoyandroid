@@ -32,3 +32,15 @@ td.p10 {width:10%;}
 	width: 48px;
 	height: 48px;
 }
+
+header .logo {
+display: block;
+position: absolute;
+top: 0;
+left: 0;
+width: 80px;
+height: 50px;
+max-height: 100%;
+background: #e9292e url("/static/img/logo.png") no-repeat center center scroll;
+background-size: 70px 30px;
+}

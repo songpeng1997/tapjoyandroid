@@ -34,6 +34,12 @@
       padding-top: 60px;
       padding-bottom: 40px;
     }
+    @media (max-width: 980px) {
+      body {
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+    }
   </style>
   <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
 
@@ -52,16 +58,19 @@
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
   <![endif]-->
   <header>
-
+  
+   
   <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
+    <a class="logo" href="#"></a>
     
-    <ul class="nav">
+    <ul class="nav pull-right">
       <li id = '3'><a href="{% url 'apphome' %}">推荐</a></li>
       <li id = '2'><a href="{% url 'category' category_id=2 %}">游戏</a></li>
       <li id = '1'><a href="{% url 'category' category_id=1 %}">软件</a></li>
       <li id = '0'><a href="{% url 'appsearch' %}">搜索</a></li>
     </ul>
+    
   </div>
   </div>
 

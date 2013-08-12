@@ -45,7 +45,7 @@ class App(models.Model):
     version = models.CharField(max_length=32, default = '未知')
     size = models.IntegerField(default=0)
     pub_date = models.DateTimeField('date published')
-    active = models.BooleanField('Live', default=False)
+    active = models.BooleanField('Live', default=True)
 
     APP_TYPE_CHOICES = (
     (0, '免费'),
