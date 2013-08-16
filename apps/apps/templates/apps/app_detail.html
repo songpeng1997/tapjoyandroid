@@ -24,27 +24,70 @@
  
 </script>
 
+<script>
+
+function app_download(app_id) {
+  return function() {
+    $.post("{% url 'appdownload' %}",  {'app_id':app_id, csrfmiddlewaretoken: '{{ csrf_token }}' }, function(data){
+
+    });
+
+  };
+}
+</script>
+
+<script>
+$('#long-des').on('show', function () {
+   $('#short-des').collapse('hide')
+   $('#showmore').hide()
+}).on('hide', function () {
+   $('#short-des').collapse('show')
+   $('#showmore').show()
+})
+</script>
+
 
 {% endblock %}
 
 {% block content %}
 
-<input   type="button"   name="back"   value="返回"   onclick="javascript:history.go(-1);return false;">
+
 
 <div class = "container">
- 
-    	<div class = "clearfix">
-    		<div class = "appicon"><img src = "{{ app.icon.url }}"></div>
+      <div class="detail-header"> 
+          <p class="text-center">
+            <a class="btn btn-small pull-left" onclick="javascript:history.go(-1);return false;">&nbsp<i class = "icon-arrow-left icon-red"></i>&nbsp</a>  应用详情 
+             {% if request.user.is_staff %}
+              <a class="btn btn-small pull-right" href = "{% url 'admin:apps_app_change' app.id %}">编辑</a>
+             {% endif %}
+          </p> 
+      </div>
+    	<div class = "app-detail clearfix">
+    		
+        
+              <div class = "appicon pull-left" ><img src = "{{ app.icon.url }}"> </div>
+              <div class = "app-basic">
+                <div class = "appname">{{ app.app_name }}</div>
+                <div>{{ app.size | filesizeformat}}</div>
+              </div>
+             
+          
+        <a class="btn btn-large pull-right" href="{{ app.apk.url }}"  onclick="setTimeout(app_download('{{ app.app_id }}'), 1000)"><i class = "icon-download-alt"></i></a> 
+          
+      </div>
     		<div>
-    			<div class = "appname">{{ app.app_name }}</div>
 
-    			<div>{{ app.size | filesizeformat}}</div>
-          {% if request.user.is_staff %}
-          <a href = "{% url 'admin:apps_app_change' app.id %}">edit</a>
-          {% endif %}
+          <div class = "app-description" data-toggle="collapse" data-target="#long-des">
+            <h4>简介:  <a id="showmore" class="btn btn-mini pull-right">  &nbsp. . .&nbsp</a> </h4> 
+            <div id="long-des" class="collapse out"> {{ app.description }}</div>
+            <div id="short-des" class="collapse in"> {{ app.description | truncatechars:50 }}</div>
+          </div>
 
-          <div>{{ app.description }}</div>
+      
+ 
+           
 
+          <div class = "app-description"><h4>预览:</h4>
           <div id="gallery">
                 <img data-src="{{ app.img1.url }}" alt="Preview 1" />
                 <img data-src="{{ app.img2.url }}" alt="Preview 2" />
@@ -52,13 +95,12 @@
                 <img data-src="{{ app.img4.url }}" alt="Preview 4" />
                 
           </div> 
-
+          </div>
     		</div>
+
     		
       </div>
-    	<div> 
-    	   <a class="btn btn-large" href="{{ app.apk.url }}"><i class = "icon-download-alt"></i></a> 
-      </div>
+    	
   
 </div>
 

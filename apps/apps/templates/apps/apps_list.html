@@ -31,7 +31,7 @@ function app_download(app_id) {
         <a href = "{% url 'appdetail' app_id=app.app_id %}">
       	<div class = "clearfix">
       		<div class = "appicon"><img src = "{{ app.icon.url }}"></div>
-      		<div>
+      		<div class = "app-basic">
       			<div class = "appname">{{ app.app_name }}</div>
       			<div>{{ app.size | filesizeformat}}</div>
       		</div>

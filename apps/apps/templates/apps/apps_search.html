@@ -2,6 +2,23 @@
 
 {% block page_title %}Your Site - Home{% endblock %}
 {% block page_class %}home-page{% endblock %}
+
+{% block js%} 
+
+<script>
+
+function app_download(app_id) {
+  return function() {
+    $.post("{% url 'appdownload' %}",  {'app_id':app_id, csrfmiddlewaretoken: '{{ csrf_token }}' }, function(data){
+
+    });
+
+  };
+}
+</script>
+
+{% endblock %}
+
 {% block content %}
 
 <div>
@@ -37,7 +54,7 @@
       </td>
       <td class = "p10">
       	<div> 
-      	   <a class="btn btn-large" href="{{ app.apk.url }}"><i class = "icon-download-alt"></i></a> 
+      	   <a class="btn btn-large" href="{{ app.apk.url }}"  onclick="setTimeout(app_download('{{ app.app_id }}'), 1000)"><i class = "icon-download-alt"></i></a> 
         </div>
       </td>
       </tr>

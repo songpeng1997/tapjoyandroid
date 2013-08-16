@@ -24,8 +24,14 @@ td.p10 {width:10%;}
 	font-size: 50%;
 }
 
-.appicon {
+.appicon  {
 	float:left;
+}
+
+.app-basic {
+  float:left;
+  padding-left: 10px;
+  width: 40%;
 }
 
 .appicon img {
@@ -43,4 +49,30 @@ height: 50px;
 max-height: 100%;
 background: #e9292e url("/static/img/logo.png") no-repeat center center scroll;
 background-size: 70px 30px;
+}
+
+.detail-header {
+  font-size: 120%;
+  padding-top: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.app-detail {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+
+
+.app-description {
+  padding: 10px;  
+  margin: 5px;
+  border: 1px solid #c6c6c6;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+.carouselcontainer {
+    max-width: 480px;
 }
