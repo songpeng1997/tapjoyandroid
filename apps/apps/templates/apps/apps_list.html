@@ -19,8 +19,11 @@ function app_download(app_id) {
 {% endblock %}
 {% block content %}
 
-<input   type="button"   name="back"   value="返回"   onclick="javascript:history.go(-1);return false;">
+
 <div class = "container">
+
+  
+
   <table class="table">
   <caption><h1>{{ sub_category.sub_catg_name }}</h1></caption>
   <tbody>
@@ -40,7 +43,8 @@ function app_download(app_id) {
       </td>
       <td class = "p10">
       	<div> 
-      	   <a class="btn btn-large" href="{{ app.apk.url }}" onclick="setTimeout(app_download('{{ app.app_id }}'), 1000)"><i class = "icon-download-alt"></i></a> 
+      	   <a class="btn" href="{{ app.apk.url }}" onclick="setTimeout(app_download('{{ app.app_id }}'), 1000)"><i class = "icon-download-alt"></i><span class="btn-nowrap">下载</span></a> 
+
           
         </div>
       </td>

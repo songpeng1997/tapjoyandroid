@@ -54,7 +54,7 @@ function app_download(app_id) {
       </td>
       <td class = "p10">
       	<div> 
-      	   <a class="btn btn-large" href="{{ app.apk.url }}"  onclick="setTimeout(app_download('{{ app.app_id }}'), 1000)"><i class = "icon-download-alt"></i></a> 
+      	   <a class="btn" href="{{ app.apk.url }}"  onclick="setTimeout(app_download('{{ app.app_id }}'), 1000)"><i class = "icon-download-alt"></i><span class="btn-nowrap">下载</span></a> 
         </div>
       </td>
       </tr>

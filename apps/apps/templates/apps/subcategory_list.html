@@ -10,6 +10,9 @@
        if ({{ category.id }}) {
           $('#' + {{ category.id }}).addClass('active');
        };
+
+       $('#recomm_panel').show();
+       $('#category_panel').hide();
        
     });
  
@@ -22,8 +25,16 @@
 
 
 <div class = "container">
-  <table class="table">
-  <caption><h1>{{ category.catg_name }}</h1></caption>
+  <div class="category-header"> 
+      <div class="btn-group" data-toggle="buttons-radio">
+        <button type="button" class="btn btn-primary active" onclick="$('#recomm_panel').show();$('#category_panel').hide();">推 荐</button>
+        <button type="button" class="btn btn-primary" onclick="$('#recomm_panel').hide();$('#category_panel').show();">分 类</button>
+      </div>
+
+  </div>
+
+  <table class="table" id="category_panel">
+  <caption><h1></h1></caption>
   <tbody>
     {% for sub_catg in subcategory_list %}
     
@@ -40,6 +51,37 @@
         </div>
       </td>
       <td></td>
+      </tr>
+  {% endfor %}
+     <tr><td></td><td></td></tr>
+
+     
+  </tbody>
+  </table>
+
+  <table class="table" id="recomm_panel">
+  <caption><h1></h1></caption>
+  <tbody>
+    {% for app in re_apps_list %}
+    
+      <tr>
+      <td>
+        <a href = "{% url 'appdetail' app_id=app.app_id %}">
+        <div class = "clearfix">
+          <div class = "appicon"><img src = "{{ app.icon.url }}"></div>
+          <div class = "app-basic">
+            <div class = "appname">{{ app.app_name }}</div>
+            <div>{{ app.size | filesizeformat}}</div>
+          </div>
+          
+        </div>
+      </td>
+      <td class = "p10">
+        <div> 
+           <a class="btn" href="{{ app.apk.url }}" onclick="setTimeout(app_download('{{ app.app_id }}'), 1000)"><i class = "icon-download-alt"></i> <span class="btn-nowrap">下载</span></a> 
+           
+        </div>
+      </td>
       </tr>
   {% endfor %}
      <tr><td></td><td></td></tr>

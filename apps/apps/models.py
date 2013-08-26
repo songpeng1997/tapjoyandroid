@@ -32,7 +32,7 @@ def meta_file_name(instance, filename):
     return '/'.join(['apps_meta', folder, filename]) 
 
 class App(models.Model):
-    app_id = models.CharField(default = uuid.uuid1, max_length = 36, editable = False)
+    app_id = models.CharField(default = lambda:str(uuid.uuid1()), max_length = 36, editable = False)
     sub_catg = models.ForeignKey(SubCategory)
     app_name = models.CharField(max_length=200)
     description = models.TextField(max_length=1000)
@@ -55,6 +55,9 @@ class App(models.Model):
     )
      
     app_type = models.SmallIntegerField(default=1, choices = APP_TYPE_CHOICES )
+
+    recomm_flag_on_index = models.BooleanField(u'是否首页推荐', default=False)
+    recomm_flag_on_catg = models.BooleanField(u'是否分类推荐', default=False)
 
     vendor_name = models.CharField(max_length=200)
 

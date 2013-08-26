@@ -57,6 +57,16 @@ background-size: 70px 30px;
   border-bottom: 1px solid #e5e5e5;
 }
 
+.category-header {
+  font-size: 120%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e5e5e5;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .app-detail {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -75,4 +85,8 @@ background-size: 70px 30px;
 
 .carouselcontainer {
     max-width: 480px;
+}
+
+.btn-nowrap {
+  white-space : nowrap
 }

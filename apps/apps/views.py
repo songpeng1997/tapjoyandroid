@@ -13,7 +13,10 @@ def category(request, category_id):
     """ sub category list in this category """
     category = get_object_or_404(Category, pk=category_id)
     subcategory_list = category.subcategory_set.all()
-    return render(request, 'apps/subcategory_list.html',  {'category':category, 'subcategory_list':subcategory_list})
+    re_apps_list = App.objects.filter(sub_catg__in=subcategory_list).filter(recomm_flag_on_catg=True)[:5]
+    return render(request, 'apps/subcategory_list.html',  {'category':category, 
+                                                           'subcategory_list':subcategory_list, 
+                                                           're_apps_list':re_apps_list})
 
 
 def sub_category(request, subcategory_id):
@@ -43,7 +46,8 @@ def search(request):
 
 def home(request):
     apps_list = CarouselApp.objects.all()
-    return render(request, 'apps/apps_index.html', {'apps_list':apps_list})
+    re_apps_list = App.objects.filter(recomm_flag_on_index=True)[:5]
+    return render(request, 'apps/apps_index.html', {'apps_list':apps_list, 're_apps_list':re_apps_list})
 
 
 def download(request):
