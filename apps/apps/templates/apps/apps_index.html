@@ -3,9 +3,30 @@
 {% block page_title %}Your Site - Home{% endblock %}
 {% block page_class %}home-page{% endblock %}
 {% block js%} 
-<script>$('.carousel').carousel({
-  interval: 3000
-})</script>
+  <script>$('.carousel').carousel({
+    interval: 3000
+  })
+  </script>
+
+  <script>
+
+  var page = 1;
+  $("#loadmore").click(function(){
+    $('#loadmore').button('loading');
+    $.ajax({url: "{% url 'apphome' %}" + page, 
+            success:function(result){
+                       page += 1;
+                       $("#app-panel").append(result);  
+                    }, 
+            complete:function(){$('#loadmore').button('reset');}});
+  });
+
+  $(document).ready(function() {
+    $("#loadmore").click();
+  }); 
+  
+
+</script>
 {% endblock %}
 {% block content %}
 <div class = "container carouselcontainer">
@@ -35,41 +56,21 @@
       </ol>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
-</div>
+   </div>
 </div>
 
-
+</div>
 <div class = "container">
-  <table class="table">
+  <table class="table table-bordered">
   <caption><h1></h1></caption>
-  <tbody>
-    {% for app in re_apps_list %}
-    
-      <tr>
-      <td>
-        <a href = "{% url 'appdetail' app_id=app.app_id %}">
-        <div class = "clearfix">
-          <div class = "appicon"><img src = "{{ app.icon.url }}"></div>
-          <div class = "app-basic">
-            <div class = "appname">{{ app.app_name }}</div>
-            <div>{{ app.size | filesizeformat}}</div>
-          </div>
-          
-        </div>
-      </td>
-      <td class = "p10">
-        <div> 
-           <a class="btn" href="{{ app.apk.url }}" onclick="setTimeout(app_download('{{ app.app_id }}'), 1000)"><i class = "icon-download-alt"></i> <span class="btn-nowrap">下载</span></a> 
-           
-        </div>
-      </td>
-      </tr>
-  {% endfor %}
-     <tr><td></td><td></td></tr>
-
-     
+  <tbody id = 'app-panel'>
+   
   </tbody>
   </table>
+</div>
+
+<div class="loadmore" > 
+    <button type="button" class="btn btn-primary"   id = "loadmore" data-loading-text="请等待...">&nbsp&nbsp&nbsp&nbsp加载更多&nbsp&nbsp&nbsp&nbsp</button>
 </div>
 
 

@@ -103,6 +103,12 @@
   <script src="{{ STATIC_URL }}js/plugins.js"></script>
   <script src="{{ STATIC_URL }}js/main.js"></script>
   <script src="{{ STATIC_URL }}js/helper.js"></script>
+  <script>  function app_download(app_id) {
+    return function() {
+      $.post("{% url 'appdownload' %}",  {'app_id':app_id, csrfmiddlewaretoken: '{{ csrf_token }}' }, function(data){
+      });
+    };
+  }</script>
   {% block js %}{% endblock %}
   {% endcompress %}
   <!-- end scripts -->

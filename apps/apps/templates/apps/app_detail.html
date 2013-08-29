@@ -24,17 +24,7 @@
  
 </script>
 
-<script>
 
-function app_download(app_id) {
-  return function() {
-    $.post("{% url 'appdownload' %}",  {'app_id':app_id, csrfmiddlewaretoken: '{{ csrf_token }}' }, function(data){
-
-    });
-
-  };
-}
-</script>
 
 <script>
 $('#long-des').on('show', function () {

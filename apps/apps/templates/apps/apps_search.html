@@ -7,14 +7,6 @@
 
 <script>
 
-function app_download(app_id) {
-  return function() {
-    $.post("{% url 'appdownload' %}",  {'app_id':app_id, csrfmiddlewaretoken: '{{ csrf_token }}' }, function(data){
-
-    });
-
-  };
-}
 </script>
 
 {% endblock %}
@@ -36,7 +28,7 @@ function app_download(app_id) {
 <p>search_meta object dump: {{ search_meta }}</p>
 {% endif %}
 <hr/>
-<table class="table">
+<table class="table table-bordered">
   <caption><h1>搜索结果</h1></caption>
   <tbody>
 {% for app in apps_list %}
@@ -59,7 +51,6 @@ function app_download(app_id) {
       </td>
       </tr>
 {% endfor %}
-<tr><td></td><td></td></tr>
 
      
   </tbody>

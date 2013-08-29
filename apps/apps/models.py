@@ -57,7 +57,9 @@ class App(models.Model):
     app_type = models.SmallIntegerField(default=1, choices = APP_TYPE_CHOICES )
 
     recomm_flag_on_index = models.BooleanField(u'是否首页推荐', default=False)
+    recomm_index_date = models.DateTimeField(u'首页推荐时间')
     recomm_flag_on_catg = models.BooleanField(u'是否分类推荐', default=False)
+    recomm_catg_date = models.DateTimeField(u'分类推荐时间')
 
     vendor_name = models.CharField(max_length=200)
 
