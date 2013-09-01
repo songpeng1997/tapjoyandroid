@@ -154,6 +154,7 @@ STATICFILES_FINDERS = (
 )
 
 MIDDLEWARE_CLASSES = [
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -163,6 +164,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'commonware.middleware.FrameOptionsHeader',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 
 TEMPLATE_CONTEXT_PROCESSORS = [
@@ -291,7 +293,7 @@ INTERNAL_IPS = ('127.0.0.1')
 
 # Enable these options for memcached
 #CACHE_BACKEND= "memcached://127.0.0.1:11211/"
-#CACHE_MIDDLEWARE_ANONYMOUS_ONLY=True
+CACHE_MIDDLEWARE_ANONYMOUS_ONLY=True
 
 # Set this to true if you use a proxy that sets X-Forwarded-Host
 #USE_X_FORWARDED_HOST = False
