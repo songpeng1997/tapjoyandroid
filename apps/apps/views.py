@@ -12,7 +12,7 @@ import json
 
 
 def app_pagination(request, apps, page): 
-    paginator = Paginator(apps, 5) # Show 5 apps per page
+    paginator = Paginator(apps, 10) # Show 5 apps per page
     try:
         apps_list = paginator.page(page)
     except PageNotAnInteger:
