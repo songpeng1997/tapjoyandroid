@@ -164,6 +164,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'commonware.middleware.FrameOptionsHeader',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'mobi.middleware.MobileDetectionMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 

@@ -4,7 +4,6 @@ from django.conf.urls import url, patterns
 
 
 urlpatterns = patterns('apps.views',
-	
 	url(r'^search/$','search', name='appsearch'),
 	url(r'^download/$','download', name='appdownload'),
 	url(r'^subcategory/(?P<subcategory_id>\d+)/$', 'sub_category', name='subcategory'),

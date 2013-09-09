@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     #url(r'^', include('debug_toolbar_user_panel.urls')),
     url(r'^bad/$', bad),
     url(r'^apps/', include('apps.urls')),
+    url(r'^m/', include('apps.urls')),
     url(r'', include('base.urls')),
 )
 
