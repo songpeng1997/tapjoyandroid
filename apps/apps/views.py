@@ -7,6 +7,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import F
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.utils.html import escape
 
 import json
 
@@ -54,7 +55,7 @@ def app_detail(request, app_id):
 def search(request):
     """ search page """
     if request.method == 'POST':
-        query=request.POST.get('query',None)
+        query=escape(request.POST.get('query',None))
         r=App.search.query(query)
         apps_list=list(r)
         context={'apps_list':apps_list,'query':query,'search_meta':r._sphinx}
