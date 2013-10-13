@@ -49,6 +49,16 @@
   {% compress js %}
   <script src="{{ STATIC_URL }}js/vendor/modernizr-2.6.2.min.js"></script>
   {% endcompress %}
+  <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?7530b5596f6519d0bf9d678cfe92fbde";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 </head>
 <body class="{% block body_class %}{% endblock %}">
 {% block body %}
@@ -121,6 +131,10 @@
     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
     s.parentNode.insertBefore(g,s)}(document,'script'));
   </script>
+  <script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F7530b5596f6519d0bf9d678cfe92fbde' type='text/javascript'%3E%3C/script%3E"));
+  </script> 
 {% endblock %}
 </body>
 </html>

@@ -16,6 +16,7 @@ tmp/*
 *.log
 *.db
 db/
+VIE/
 test_db/
 .vagrant
 *.sublime-project
