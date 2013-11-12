@@ -54,7 +54,7 @@ var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "//hm.baidu.com/hm.js?7530b5596f6519d0bf9d678cfe92fbde";
-  var s = document.getElementsByTagName("script")[0]; 
+  var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
@@ -68,19 +68,19 @@ var _hmt = _hmt || [];
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
   <![endif]-->
   <header>
-  
-   
+
+
   <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <a class="logo" href="/m"></a>
-    
+
     <ul class="nav pull-right">
       <li id = '3'><a href="{% url 'apphome' %}">首页</a></li>
       <li id = '2'><a href="{% url 'category' category_id=2 %}">游戏</a></li>
       <li id = '1'><a href="{% url 'category' category_id=1 %}">软件</a></li>
       <li id = '0'><a href="{% url 'appsearch' %}">搜索</a></li>
     </ul>
-    
+
   </div>
   </div>
 
@@ -91,13 +91,13 @@ var _hmt = _hmt || [];
   </div>
 
    <footer class="center" >
-    
-      
+
+
         <p >&copy; Tapjoy 2013 京ICP证13010697号</p>
-      
-  
+
+
   </footer>
-  
+
 
 
 
@@ -113,12 +113,7 @@ var _hmt = _hmt || [];
   <script src="{{ STATIC_URL }}js/plugins.js"></script>
   <script src="{{ STATIC_URL }}js/main.js"></script>
   <script src="{{ STATIC_URL }}js/helper.js"></script>
-  <script>  function app_download(app_id) {
-    return function() {
-      $.post("{% url 'appdownload' %}",  {'app_id':app_id, csrfmiddlewaretoken: '{{ csrf_token }}' }, function(data){
-      });
-    };
-  }</script>
+
   {% block js %}{% endblock %}
   {% endcompress %}
   <!-- end scripts -->
@@ -134,7 +129,7 @@ var _hmt = _hmt || [];
   <script type="text/javascript">
     var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
     document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F7530b5596f6519d0bf9d678cfe92fbde' type='text/javascript'%3E%3C/script%3E"));
-  </script> 
+  </script>
 {% endblock %}
 </body>
 </html>

@@ -1,6 +1,6 @@
 
     {% for app in apps_list %}
-    
+
       <tr>
       <td>
         <a href = "{% url 'appdetail' app_id=app.app_id %}">
@@ -10,17 +10,17 @@
             <div class = "appname">{{ app.app_name }}</div>
             <div>{{ app.size | filesizeformat}}</div>
           </div>
-          
+
         </div>
       </td>
       <td class = "p10">
-        <div> 
-           <a class="btn" href="{{ app.apk.url }}" onclick="setTimeout(app_download('{{ app.app_id }}'), 1000)"><i class = "icon-download-alt"></i> <span class="btn-nowrap">下载</span></a> 
-           
+        <div>
+           <a class="btn" href="{% url 'download' app_id=app.app_id %}"><i class = "icon-download-alt"></i> <span class="btn-nowrap">下载</span></a>
+
         </div>
       </td>
       </tr>
   {% endfor %}
-     
 
- 
+
+
