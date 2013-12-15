@@ -100,7 +100,8 @@ def app_download(request, app_id):
 
         request.session[app_id] = True
 
-    return HttpResponseRedirect(app.apk.url)
+    return HttpResponseRedirect(app.external_url
+                                if app.enable_ext_url else app.apk.url)
 
 # def download(request):
 

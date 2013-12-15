@@ -55,6 +55,9 @@ class App(models.Model):
     pub_date = models.DateTimeField('date published')
     active = models.BooleanField('Live', default=True)
 
+    enable_ext_url = models.BooleanField(u'是否启用外部下载链接', default=False)
+    external_url = models.URLField(u'外部下载链接', max_length=200)
+
     APP_TYPE_CHOICES = (
         (0, '免费'),
         (1, '试玩转激活'),
